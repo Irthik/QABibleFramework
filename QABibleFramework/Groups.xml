@@ -1,0 +1,16 @@
+<suite name="Groups">
+	<listeners>
+		<listener class-name="utilities.ExtentReportUtility" />
+	</listeners>
+	<test name="GroupingTest">
+
+		<parameter name="Browser" value="Chrome"></parameter>
+		<groups>
+			<run>
+				<include name="Critical"> </include>
+			</run>
+		</groups>
+		<classes>
+			<class name="testCases.LoginTestCases"></class>" </classes>
+	</test>
+</suite>
