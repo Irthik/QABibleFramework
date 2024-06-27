@@ -13,8 +13,8 @@ import org.testng.Assert;
 
 public class LoginTestCases extends BaseClass {
 
-	@Test
-	public void verifyLoginIsWorking() {
+	@Test(retryAnalyzer = retry.Retry.class)
+	public void verifyLoginIsWorking() throws IOException {
 		LoginPage lp = new LoginPage(driver);
 		lp.inputUserName("carol");
 		lp.inputPassword("1q2w3e4r");
@@ -31,7 +31,7 @@ public class LoginTestCases extends BaseClass {
 	public void verifyLogoutIsWorking() throws IOException {
 		LoginPage lp = new LoginPage(driver);
 		lp.inputUserName(ExcelRead.getStringData(1, 0));
-		lp.inputPassword(ExcelRead.getIntegerData(1, 1));
+		lp.inputPassword(ExcelRead.getStringData(1, 1));
 		lp.clickLoginButton();
 
 		DashBoard db = new DashBoard(driver);

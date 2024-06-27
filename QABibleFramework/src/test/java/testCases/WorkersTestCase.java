@@ -1,5 +1,7 @@
 package testCases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,7 +13,7 @@ import elementRepository.WorkersPage;
 
 public class WorkersTestCase extends BaseClass {
 	@Test
-	public void verifyTextOfSearchButton() {
+	public void verifyTextOfSearchButton() throws IOException {
 		LoginPage lp = new LoginPage(driver);
 		lp.inputUserName("carol");
 		lp.inputPassword("1q2w3e4r");
@@ -27,7 +29,7 @@ public class WorkersTestCase extends BaseClass {
 	}
 
 	@Test
-	public void verifyTitleValueSelected() {
+	public void verifyTitleValueSelected() throws IOException {
 		LoginPage lp = new LoginPage(driver);
 		lp.inputUserName("carol");
 		lp.inputPassword("1q2w3e4r");

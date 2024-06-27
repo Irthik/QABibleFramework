@@ -1,14 +1,18 @@
 package elementRepository;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.ExcelRead;
 import utilities.GeneralUtilities;
 
 public class LoginPage {
 	WebDriver driver;
+	ExcelRead ex=new ExcelRead();
 	GeneralUtilities gu = new GeneralUtilities();
 
 	public LoginPage(WebDriver driver) {
@@ -33,11 +37,11 @@ public class LoginPage {
 		return checkIcon;
 	}
 
-	public void inputUserName(String uName) {
+	public void inputUserName(String uName) throws IOException {
 		userName.sendKeys(uName);
 	}
 
-	public void inputPassword(String uPassword) {
+	public void inputPassword(String uPassword) throws IOException {
 		password.sendKeys(uPassword);
 	}
 

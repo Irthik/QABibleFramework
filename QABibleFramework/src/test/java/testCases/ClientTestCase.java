@@ -1,5 +1,7 @@
 package testCases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,7 +12,7 @@ import elementRepository.LoginPage;
 
 public class ClientTestCase extends BaseClass {
 	@Test(groups = "Critical")
-	public void verifyBackGroundColourOfSearchButton() {
+	public void verifyBackGroundColourOfSearchButton() throws IOException {
 		LoginPage lp = new LoginPage(driver);
 		lp.inputUserName("carol");
 		lp.inputPassword("1q2w3e4r");
@@ -26,7 +28,7 @@ public class ClientTestCase extends BaseClass {
 	}
 
 	@Test
-	public void verifytooltipValueOfEditIcon() {
+	public void verifytooltipValueOfEditIcon() throws IOException {
 		LoginPage lp = new LoginPage(driver);
 		lp.inputUserName("carol");
 		lp.inputPassword("1q2w3e4r");
@@ -42,7 +44,7 @@ public class ClientTestCase extends BaseClass {
 	}
 
 	@Test(groups = "Critical")
-	public void verifyCheckboxIsSelected() {
+	public void verifyCheckboxIsSelected() throws IOException {
 		LoginPage lp = new LoginPage(driver);
 		lp.inputUserName("carol");
 		lp.inputPassword("1q2w3e4r");
@@ -59,7 +61,7 @@ public class ClientTestCase extends BaseClass {
 	}
 	
 	@Test
-	public void getAddressOfClient() {
+	public void getAddressOfClient() throws IOException {
 		LoginPage lp=new LoginPage(driver);
 		lp.inputUserName("carol");
 		lp.inputPassword("1q2w3e4r");
