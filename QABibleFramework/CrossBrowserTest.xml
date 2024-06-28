@@ -1,11 +1,14 @@
-<suite name="CrossBrowserTest" parallel = "tests" thread-count = "2">
+<suite name="CrossBrowserTest" parallel="tests" thread-count="2">
+	<listeners>
+		<listener class-name="utilities.ExtentReportUtility" />
+	</listeners>
 	<test name="ChromeTest">
 		<parameter name="Browser" value="Chrome"></parameter>
 		<classes>
 			<class name="testCases.ClientTestCase"></class>
 		</classes>
 	</test>
-	
+
 	<test name="EdgeTest">
 		<parameter name="Browser" value="Edge"></parameter>
 		<classes>

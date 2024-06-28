@@ -30,8 +30,10 @@ public class LoginTestCases extends BaseClass {
 	@Test(groups = "Critical")
 	public void verifyLogoutIsWorking() throws IOException {
 		LoginPage lp = new LoginPage(driver);
-		lp.inputUserName(ExcelRead.getStringData(1, 0));
-		lp.inputPassword(ExcelRead.getStringData(1, 1));
+		//lp.inputUserName(ExcelRead.getStringData(1, 0));
+		//lp.inputPassword(ExcelRead.getStringData(1, 1));
+		lp.inputUserName("carol");
+		lp.inputPassword("1q2w3e4r");
 		lp.clickLoginButton();
 
 		DashBoard db = new DashBoard(driver);
