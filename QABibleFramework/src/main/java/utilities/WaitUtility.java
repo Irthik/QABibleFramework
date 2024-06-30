@@ -11,10 +11,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class WaitUtility {
 	public void waitForPresenceOfElementLocated(WebDriver driver, String locator) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(10000));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locator)));
 	}
 	
-	public void waitForAlertToBePresent(WebDriver driver, String locator) {
+	public void waitForAlertToBePresent(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(10000));
 		wait.until(ExpectedConditions.alertIsPresent());
 	}

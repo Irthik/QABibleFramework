@@ -9,6 +9,7 @@ import Base.BaseClass;
 import elementRepository.ClientsPage;
 import elementRepository.DashBoard;
 import elementRepository.LoginPage;
+import utilities.ExcelRead;
 
 public class ClientTestCase extends BaseClass {
 	@Test(groups = "Critical")
@@ -59,20 +60,38 @@ public class ClientTestCase extends BaseClass {
 		boolean expectedCheck = true;
 		Assert.assertEquals(actualCheck, expectedCheck, "Checkbox is not selected");
 	}
-	
+
 	@Test
 	public void getAddressOfClient() throws IOException {
-		LoginPage lp=new LoginPage(driver);
+		LoginPage lp = new LoginPage(driver);
 		lp.inputUserName("carol");
 		lp.inputPassword("1q2w3e4r");
 		lp.clickLoginButton();
-		
-		DashBoard db=new DashBoard(driver);
+
+		DashBoard db = new DashBoard(driver);
 		db.clickClientsTab();
-		
-		ClientsPage cp=new ClientsPage(driver);
-		String actualAddress=cp.checkAddressOfParticularClient();
-		String expectedAddress=("Innhams Wood\n"+ "Crowborough\n"+ "East Sussex");
-		Assert.assertEquals(actualAddress, expectedAddress,"Address is not matching");
+
+		ClientsPage cp = new ClientsPage(driver);
+		String actualAddress = cp.checkAddressOfParticularClient();
+		String expectedAddress = ("Innhams Wood\n" + "Crowborough\n" + "East Sussex");
+		Assert.assertEquals(actualAddress, expectedAddress, "Address is not matching");
+	}
+
+	@Test(groups = "High")
+	public void getClientByNameAndId() throws IOException {
+		LoginPage lp = new LoginPage(driver);
+		lp.inputUserName(ExcelRead.getStringData(1, 0));
+		lp.inputPassword(ExcelRead.getStringData(1, 1));
+		lp.clickLoginButton();
+
+		DashBoard db = new DashBoard(driver);
+		db.clickClientsTab();
+
+		ClientsPage cp = new ClientsPage(driver);
+		cp.enterNameAndIdToBeSearched("Sam", "3");
+		cp.clickEditIcon();
+		boolean actualResult = cp.isElementPresent();
+		boolean expectedResult = true;
+		Assert.assertEquals(actualResult, expectedResult, "Client not found!");
 	}
 }

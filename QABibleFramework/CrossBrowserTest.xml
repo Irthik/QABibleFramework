@@ -5,14 +5,14 @@
 	<test name="ChromeTest">
 		<parameter name="Browser" value="Chrome"></parameter>
 		<classes>
-			<class name="testCases.ClientTestCase"></class>
+			<class name="testCases.DeductionsTestCase"></class>
 		</classes>
 	</test>
 
-	<test name="EdgeTest">
+<!--	<test name="EdgeTest">
 		<parameter name="Browser" value="Edge"></parameter>
 		<classes>
 			<class name="testCases.ClientTestCase"></class>
 		</classes>
-	</test>
+	</test> -->
 </suite>

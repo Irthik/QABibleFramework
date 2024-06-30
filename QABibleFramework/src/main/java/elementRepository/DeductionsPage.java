@@ -14,11 +14,15 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.ExcelRead;
 import utilities.GeneralUtilities;
+import utilities.WaitUtility;
 
 public class DeductionsPage {
 	WebDriver driver;
 	GeneralUtilities gu = new GeneralUtilities();
+	WaitUtility wu=new WaitUtility();
+	ExcelRead ex=new ExcelRead();
 
 	public DeductionsPage(WebDriver driver) {
 		this.driver = driver;
@@ -54,8 +58,7 @@ public class DeductionsPage {
 	}
 
 	public void selectWorker(String name) throws AWTException {
-		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMillis(30000));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("select2-deduction-worker_id-container")));
+		wu.waitForPresenceOfElementLocated(driver, "select2-deduction-worker_id-container");
 		gu.getSelectedOptionFromDropDownSearch(worker,searchBox, name);
 		Robot robot=new Robot();
 		robot.keyPress(KeyEvent.VK_ENTER);
@@ -78,6 +81,11 @@ public class DeductionsPage {
 
 	public void saveButton() {
 		save.click();
+	}
+	
+	public String colorOfSaveButton() {
+		String buttonColour=gu.getStylePropertyValue(save, "background-color");
+		return buttonColour;
 	}
 
 }

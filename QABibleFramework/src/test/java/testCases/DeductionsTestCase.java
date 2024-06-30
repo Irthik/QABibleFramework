@@ -11,6 +11,7 @@ import elementRepository.DashBoard;
 import elementRepository.Deduction2ndPage;
 import elementRepository.DeductionsPage;
 import elementRepository.LoginPage;
+import utilities.ExcelRead;
 
 public class DeductionsTestCase extends BaseClass {
   @Test
@@ -35,5 +36,23 @@ public class DeductionsTestCase extends BaseClass {
 	  String actualTitle=dp2.titleOfPage();
 	  String expectedTitle="Create Deduction";
 	  Assert.assertEquals(actualTitle, expectedTitle, "Deductions not saved!!");
+  }
+  
+  @Test
+  public void verifyBackgroundColorOfSaveButtonInDeductionsAddPage() throws IOException {
+	  LoginPage lp=new LoginPage(driver);
+	  lp.inputUserName(ExcelRead.getStringData(1, 0));
+	  lp.inputPassword(ExcelRead.getStringData(1, 1));
+	  lp.clickLoginButton();
+	  
+	  DashBoard db=new DashBoard(driver);
+	  db.clickDeductionsTab();
+	  
+	  DeductionsPage dp=new DeductionsPage(driver);
+	  dp.clickAddDeduction();
+	  String actualColour=dp.colorOfSaveButton();
+	  String expectedColour="rgba(92, 184, 92, 1)";
+	  Assert.assertEquals(actualColour, expectedColour, "Background colour not as expected!");
+	  
   }
 }

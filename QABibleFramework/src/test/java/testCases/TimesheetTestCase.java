@@ -1,6 +1,7 @@
 package testCases;
 
 import java.awt.AWTException;
+import java.io.IOException;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,7 +13,7 @@ import elementRepository.TimesheetPage;
 
 public class TimesheetTestCase extends BaseClass {
 	@Test
-	public void verifyFileUploadInTimeSheetCreation() throws AWTException {
+	public void verifyFileUploadInTimeSheetCreation() throws AWTException, IOException {
 		LoginPage lp = new LoginPage(driver);
 		lp.inputUserName("carol");
 		lp.inputPassword("1q2w3e4r");
