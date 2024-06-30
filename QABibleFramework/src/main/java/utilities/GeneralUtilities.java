@@ -107,6 +107,12 @@ public class GeneralUtilities {
 		return text;
 
 	}
+	public void acceptOnAlertBox(WebDriver driver) {
+		driver.switchTo().alert().accept();
+	}
 	
-
+	public String messageOnAlertBox(WebDriver driver) {
+		String message=driver.switchTo().alert().getText();
+		return message;
+	}
 }
