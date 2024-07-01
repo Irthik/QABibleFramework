@@ -11,6 +11,6 @@
 			</run>
 		</groups>
 		<classes>
-			<class name="testCases.ClientTestCase"></class>" </classes>
+			<class name="testCases.LoginTestCases"></class>" </classes>
 	</test>
 </suite>
