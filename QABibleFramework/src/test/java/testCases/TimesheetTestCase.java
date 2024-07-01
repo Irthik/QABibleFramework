@@ -35,8 +35,8 @@ public class TimesheetTestCase extends BaseClass {
 	@Test(groups = "High")
 	public void generatePaySlip() throws IOException {
 		LoginPage lp = new LoginPage(driver);
-		lp.inputUserName(ExcelRead.getStringData(1, 0));
-		lp.inputPassword(ExcelRead.getStringData(1, 1));
+		lp.inputUserName("carol");
+		lp.inputPassword("1q2w3e4r");
 		lp.clickLoginButton();
 
 		DashBoard db = new DashBoard(driver);
