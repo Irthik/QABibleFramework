@@ -7,10 +7,10 @@
 		<parameter name="Browser" value="Chrome"></parameter>
 		<groups>
 			<run>
-				<include name="High"> </include>
+				<include name="Critical"> </include>
 			</run>
 		</groups>
 		<classes>
-			<class name="testCases.TimesheetTestCase"></class>" </classes>
+			<class name="testCases.ClientTestCase"></class>" </classes>
 	</test>
 </suite>
