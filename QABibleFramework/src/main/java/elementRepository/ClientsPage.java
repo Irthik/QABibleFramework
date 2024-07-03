@@ -1,5 +1,6 @@
 package elementRepository;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -60,7 +61,14 @@ public class ClientsPage {
 	}
 
 	public String checkAddressOfParticularClient() {
-		return gu.dynamicTableWithNameAndAddress(driver, "Dennis");
+		int tablerow = gu.dynamicTableWithNameAndAddress(driver,
+				"//table[@class='table table-striped table-bordered']//tbody//tr//td[2]");
+		String locator = "//table[@class='table table-striped table-bordered']//tbody//tr[" + (tablerow + 1)
+				+ "]//td[4]";
+		WebElement address = driver.findElement(By.xpath(locator));
+		String addresstext = gu.getElementText(address);
+		return addresstext;
+
 	}
 
 	public void enterNameAndIdToBeSearched(String name, String id) {

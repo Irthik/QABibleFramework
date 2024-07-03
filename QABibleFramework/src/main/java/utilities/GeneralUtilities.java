@@ -74,45 +74,41 @@ public class GeneralUtilities {
 		robot.keyRelease(KeyEvent.VK_ENTER);
 
 	}
+
 	public void getSelectedOptionFromDropDownSearch(WebElement element1, WebElement element2, String text) {
 		element1.click();
 		element2.click();
 		element2.sendKeys(text);
-		
-		}
-	
+
+	}
+
 	public void getOnlySelectedOptionFromDropDown(WebElement element, String text) {
 		element.click();
 		Select select = new Select(element);
 		select.selectByVisibleText(text);
-		
-		}
-	
-	public String dynamicTableWithNameAndAddress(WebDriver driver, String name) {
-		String locator=null;
-		
-		List<WebElement> column=driver.findElements(By.xpath("//table[@class='table table-striped table-bordered']//tbody//tr//td[2]"));
-		for(int i=0;i<column.size();i++)
-		{
-			if(column.get(i).getText().equals(name))
-			{
-				locator="//table[@class='table table-striped table-bordered']//tbody//tr["+(i+1)+"]//td[4]";
+
+	}
+
+	public int dynamicTableWithNameAndAddress(WebDriver driver, String name) {
+		String locator = null;
+		int i;
+
+		List<WebElement> column = driver.findElements(By.xpath(name));
+		for (i = 0; i < column.size(); i++) {
+			if (column.get(i).getText().equals(name)) {
 				break;
 			}
 		}
-		
-		WebElement row=driver.findElement(By.xpath(locator));
-		String text=row.getText();
-		System.out.println(text);
-		return text;
+		return i;
 
 	}
+
 	public void acceptOnAlertBox(WebDriver driver) {
 		driver.switchTo().alert().accept();
 	}
-	
+
 	public String messageOnAlertBox(WebDriver driver) {
-		String message=driver.switchTo().alert().getText();
+		String message = driver.switchTo().alert().getText();
 		return message;
 	}
 }
