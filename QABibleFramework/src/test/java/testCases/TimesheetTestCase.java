@@ -13,7 +13,7 @@ import elementRepository.TimesheetPage;
 import utilities.ExcelRead;
 
 public class TimesheetTestCase extends BaseClass {
-	@Test
+	@Test(groups="Critical")
 	public void verifyFileUploadInTimeSheetCreation() throws AWTException, IOException {
 		LoginPage lp = new LoginPage(driver);
 		lp.inputUserName("carol");
@@ -25,7 +25,7 @@ public class TimesheetTestCase extends BaseClass {
 
 		TimesheetPage ts = new TimesheetPage(driver);
 		ts.clickCreateTimesheet();
-		ts.addFile("C:\\Users\\1\\Pictures\\1gh.jpg");
+		ts.addFile(System.getProperty("user.dir")+"\\src\\test\\resources\\Files\\123.jpg");
 		ts.clickUpload();
 		boolean actual = ts.isElementPresent();
 		boolean expected = true;
